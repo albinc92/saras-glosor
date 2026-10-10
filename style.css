@@ -1,0 +1,161 @@
+:root {
+  --bg: #f3efe6;
+  --fg: #22301f;
+  --muted: #5d6b58;
+  --card: #fffdf8;
+  --accent: #2f5d3a;
+  --shadow: 0 10px 30px rgb(0 0 0 / .15);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161b15;
+    --fg: #e8eee4;
+    --muted: #a3b09d;
+    --card: #232b21;
+    --accent: #8fc79a;
+    --shadow: 0 10px 30px rgb(0 0 0 / .5);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+  -webkit-tap-highlight-color: transparent;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px 0 8px;
+}
+h1 { font-size: 1.3rem; margin: 0; }
+#counter { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Kortet: bredd styrs av både skärmbredd och -höjd så det alltid får plats */
+.scene {
+  width: min(560px, 100%, (100dvh - 190px) * 0.8);
+  aspect-ratio: 4 / 5;
+  perspective: 1200px;
+}
+.card {
+  all: unset;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.4, .2, .2, 1);
+}
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 18px; }
+.card.flipped { transform: rotateY(180deg); }
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #cfd8c8;
+}
+.hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(0 0 0 / .55);
+  color: #fff;
+  font-size: .85rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 24px;
+  text-align: center;
+  overflow-y: auto;
+}
+.back h2 { margin: 0 0 4px; font-size: clamp(1.5rem, 6vw, 2rem); color: var(--accent); }
+.latin { margin: 0 0 18px; font-style: italic; font-size: 1.15rem; color: var(--muted); }
+.info { margin: 0; line-height: 1.5; text-align: left; }
+.credit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  max-width: 85%;
+  padding: 4px 8px;
+  border-bottom-left-radius: 8px;
+  background: rgb(0 0 0 / .5);
+  color: #fff;
+  font-size: .7rem;
+  text-align: right;
+}
+.credit a { color: inherit; }
+
+.controls { display: flex; gap: 12px; }
+.controls button {
+  font: inherit;
+  font-size: 1.05rem;
+  min-width: 56px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--bg);
+  cursor: pointer;
+}
+.controls button[aria-label] { font-size: 1.8rem; line-height: 1; }
+.controls button:active { transform: scale(.96); }
+
+footer {
+  text-align: center;
+  font-size: .75rem;
+  color: var(--muted);
+  padding: 12px 0;
+}
+footer a { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}
+
+@media (hover: hover) {
+  .controls button:hover { filter: brightness(1.15); }
+  .card:hover .face { box-shadow: 0 14px 40px rgb(0 0 0 / .22); }
+}

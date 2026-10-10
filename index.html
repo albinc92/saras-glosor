@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Växtglosor</title>
+<meta name="description" content="Öva på svenska och latinska namn på perenner.">
+<meta name="theme-color" content="#2f5d3a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🌿 Växtglosor</h1>
+  <span id="counter" aria-live="polite"></span>
+</header>
+
+<main>
+  <div class="scene">
+    <div id="card" class="card" role="button" tabindex="0" aria-label="Vänd kortet">
+      <div class="face front">
+        <img id="img" alt="" decoding="async">
+        <span class="hint">Tryck för att vända</span>
+        <p id="credit" class="credit"></p>
+      </div>
+      <div class="face back">
+        <h2 id="sv"></h2>
+        <p id="latin" class="latin"></p>
+        <p id="info" class="info"></p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="controls">
+    <button id="prev" aria-label="Föregående">‹</button>
+    <button id="shuffle">Blanda</button>
+    <button id="next" aria-label="Nästa">›</button>
+  </nav>
+</main>
+
+<footer>
+  Bilder från <a href="https://commons.wikimedia.org">Wikimedia Commons</a> under fria licenser.
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
