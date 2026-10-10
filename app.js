@@ -74,9 +74,6 @@ const go = (d) => {
 };
 const flip = () => card.classList.toggle("flipped");
 
-card.addEventListener("click", (e) => {
-  if (!e.target.closest("a, .img-nav")) flip();
-});
 card.addEventListener("keydown", (e) => {
   if (e.target === card && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); flip(); }
 });
@@ -98,23 +95,24 @@ document.addEventListener("keydown", (e) => {
   else if (e.key === " " && e.target === document.body) { e.preventDefault(); flip(); }
 });
 
-// Svep vänster/höger på bilden byter bild
-let x0 = null;
-let y0 = null;
-card.addEventListener("touchstart", (e) => {
-  x0 = e.touches[0].clientX;
-  y0 = e.touches[0].clientY;
-}, { passive: true });
-card.addEventListener("touchend", (e) => {
-  if (x0 === null) return;
-  const dx = e.changedTouches[0].clientX - x0;
-  const dy = e.changedTouches[0].clientY - y0;
-  x0 = null;
+// Svep (finger eller mus) åt vänster/höger på bilden byter bild, ett tryck vänder kortet
+let start = null;
+card.addEventListener("pointerdown", (e) => {
+  if (e.button !== 0 || e.target.closest("a, .img-nav")) return;
+  start = { x: e.clientX, y: e.clientY };
+});
+card.addEventListener("pointerup", (e) => {
+  if (!start) return;
+  const dx = e.clientX - start.x;
+  const dy = e.clientY - start.y;
+  start = null;
   if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-    e.preventDefault(); // hindra att svepet även räknas som klick
     if (!card.classList.contains("flipped")) showImage(imgPos + (dx < 0 ? 1 : -1));
+  } else if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+    flip();
   }
 });
+card.addEventListener("pointercancel", () => { start = null; });
 
 Promise.all([
   fetch("data/plants.json").then((r) => r.json()),

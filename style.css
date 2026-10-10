@@ -66,7 +66,10 @@ main {
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform .6s cubic-bezier(.4, .2, .2, 1);
+  touch-action: pan-y;
+  user-select: none;
 }
+.card img { -webkit-user-drag: none; }
 .card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 18px; }
 .card.flipped { transform: rotateY(180deg); }
 
@@ -110,14 +113,10 @@ main {
   cursor: pointer;
   display: none;
 }
+.multi .img-nav { display: block; }
 .img-nav.prev { left: 10px; }
 .img-nav.next { right: 10px; }
 .img-nav:focus-visible { outline: 2px solid #fff; }
-/* Pilarna visas bara på enheter med mus – på mobil sveper man */
-@media (hover: hover) {
-  .multi .img-nav { display: block; opacity: 0; transition: opacity .2s; }
-  .card:hover .img-nav, .img-nav:focus-visible { opacity: 1; }
-}
 
 .dots {
   position: absolute;
@@ -136,7 +135,7 @@ main {
   box-shadow: 0 0 3px rgb(0 0 0 / .5);
 }
 .dots span.on { background: #fff; }
-.card:not(.multi) .dots, .card:not(.multi) .multi-only { display: none; }
+.card:not(.multi) .dots { display: none; }
 
 .hint {
   position: absolute;
@@ -212,10 +211,4 @@ footer a { color: inherit; }
 @media (hover: hover) {
   .controls button:hover { filter: brightness(1.15); }
   .card:hover .face { box-shadow: 0 14px 40px rgb(0 0 0 / .22); }
-}
-
-.mouse-only { display: none; }
-@media (hover: hover) {
-  .mouse-only { display: inline; }
-  .touch-only { display: none; }
 }
