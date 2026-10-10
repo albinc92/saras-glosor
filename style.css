@@ -104,14 +104,16 @@ main {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 28px 24px;
+  justify-content: safe center;
+  padding: 24px 22px;
   text-align: center;
   overflow-y: auto;
 }
 .back h2 { margin: 0 0 4px; font-size: clamp(1.5rem, 6vw, 2rem); color: var(--accent); }
-.latin { margin: 0 0 18px; font-style: italic; font-size: 1.15rem; color: var(--muted); }
+.latin { margin: 0 0 4px; font-style: italic; font-size: 1.15rem; color: var(--muted); }
+.uttal { margin: 0 0 18px; font-size: .9rem; color: var(--muted); letter-spacing: .02em; }
 .info { margin: 0; line-height: 1.5; text-align: left; }
+.meaning { margin: 14px 0 0; line-height: 1.45; text-align: left; font-size: .9rem; }
 .credit {
   position: absolute;
   top: 0;

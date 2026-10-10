@@ -34,7 +34,9 @@ function show() {
   setTimeout(() => {
     $("sv").textContent = p.sv;
     $("latin").textContent = p.latin;
+    $("uttal").textContent = `Uttal: ${p.uttal}`;
     $("info").textContent = p.info;
+    $("betydelse").textContent = p.betydelse;
   }, card.dataset.ready ? 300 : 0);
   card.dataset.ready = "1";
 
