@@ -3,6 +3,8 @@ const card = $("card");
 const WIDTHS = [400, 800, 1200];
 const SIZES = "(max-width: 600px) 92vw, 560px";
 
+let plants = [];
+let selected = new Set();
 let deck = [];
 let credits = {};
 let pos = 0;
@@ -88,6 +90,7 @@ $("shuffle").addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
+  if (picker.open) return;
   if (e.key === "ArrowRight") go(1);
   else if (e.key === "ArrowLeft") go(-1);
   else if (e.key === "ArrowUp") showImage(imgPos - 1);
@@ -114,11 +117,67 @@ card.addEventListener("pointerup", (e) => {
 });
 card.addEventListener("pointercancel", () => { start = null; });
 
+// Urval av växter – sparas i webbläsaren så det finns kvar till nästa gång
+const STORE = "valda-vaxter";
+
+function loadSelection() {
+  try {
+    const ids = JSON.parse(localStorage.getItem(STORE));
+    if (Array.isArray(ids)) {
+      const valid = ids.filter((id) => plants.some((p) => p.id === id));
+      if (valid.length) return new Set(valid);
+    }
+  } catch {}
+  return new Set(plants.map((p) => p.id));
+}
+
+function saveSelection() {
+  try { localStorage.setItem(STORE, JSON.stringify([...selected])); } catch {}
+}
+
+function buildDeck() {
+  deck = shuffle(plants.filter((p) => selected.has(p.id)));
+  pos = 0;
+  $("pick").textContent = selected.size === plants.length ? "Välj växter" : `Välj växter (${selected.size})`;
+  show();
+}
+
+const picker = $("picker");
+const boxes = () => [...$("pick-list").querySelectorAll("input")];
+
+function updatePickCount() {
+  const n = boxes().filter((b) => b.checked).length;
+  $("pick-count").textContent = `${n} av ${plants.length} valda`;
+  $("pick-done").disabled = n === 0;
+}
+
+$("pick").addEventListener("click", () => {
+  boxes().forEach((b) => { b.checked = selected.has(b.value); });
+  updatePickCount();
+  picker.showModal();
+});
+$("pick-list").addEventListener("change", updatePickCount);
+$("pick-all").addEventListener("click", () => { boxes().forEach((b) => { b.checked = true; }); updatePickCount(); });
+$("pick-none").addEventListener("click", () => { boxes().forEach((b) => { b.checked = false; }); updatePickCount(); });
+$("pick-done").addEventListener("click", () => {
+  selected = new Set(boxes().filter((b) => b.checked).map((b) => b.value));
+  saveSelection();
+  buildDeck();
+});
+
 Promise.all([
   fetch("data/plants.json").then((r) => r.json()),
   fetch("data/credits.json").then((r) => r.json()),
-]).then(([plants, c]) => {
+]).then(([p, c]) => {
+  plants = p;
   credits = c;
-  deck = shuffle(plants);
-  show();
+  $("pick-list").replaceChildren(...[...plants].sort((a, b) => a.sv.localeCompare(b.sv, "sv")).map((p) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<label><input type="checkbox" value="${p.id}"><span><span class="s"></span><span class="l"></span></span></label>`;
+    li.querySelector(".s").textContent = p.sv;
+    li.querySelector(".l").textContent = p.latin;
+    return li;
+  }));
+  selected = loadSelection();
+  buildDeck();
 });

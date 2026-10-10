@@ -12,8 +12,24 @@
 <body>
 <header>
   <h1>🌿 Växtglosor</h1>
-  <span id="counter" aria-live="polite"></span>
+  <div class="header-right">
+    <span id="counter" aria-live="polite"></span>
+    <button id="pick" class="pick">Välj växter</button>
+  </div>
 </header>
+
+<dialog id="picker" class="picker">
+  <form method="dialog">
+    <h2>Välj växter</h2>
+    <div class="picker-quick">
+      <button type="button" id="pick-all">Alla</button>
+      <button type="button" id="pick-none">Inga</button>
+      <span id="pick-count"></span>
+    </div>
+    <ul id="pick-list" class="pick-list"></ul>
+    <button id="pick-done" class="pick-done">Klar</button>
+  </form>
+</dialog>
 
 <main>
   <div class="scene">
