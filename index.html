@@ -19,8 +19,11 @@
   <div class="scene">
     <div id="card" class="card" role="button" tabindex="0" aria-label="Vänd kortet">
       <div class="face front">
-        <img id="img" alt="" decoding="async">
-        <span class="hint">Tryck för att vända</span>
+        <div id="track" class="track"></div>
+        <button id="img-prev" class="img-nav prev" aria-label="Föregående bild">‹</button>
+        <button id="img-next" class="img-nav next" aria-label="Nästa bild">›</button>
+        <div id="dots" class="dots"></div>
+        <span class="hint"><span class="touch-only">Tryck</span><span class="mouse-only">Klicka</span> för att vända<span class="multi-only touch-only"> · svep för fler bilder</span><span class="multi-only mouse-only"> · pilarna visar fler bilder</span></span>
         <p id="credit" class="credit"></p>
       </div>
       <div class="face back">
