@@ -163,8 +163,7 @@ main {
 }
 /* Namnen är det viktigaste – skalas efter kortets bredd */
 .back h2 { margin: 0 0 6px; font-size: clamp(1.9rem, 11cqi, 3rem); line-height: 1.1; color: var(--accent); overflow-wrap: anywhere; }
-.latin { margin: 0 0 6px; font-style: italic; font-weight: 600; font-size: clamp(1.3rem, 7cqi, 1.9rem); line-height: 1.15; }
-.uttal { margin: 0 0 16px; font-size: .85rem; color: var(--muted); letter-spacing: .02em; }
+.latin { margin: 0 0 18px; font-style: italic; font-weight: 600; font-size: clamp(1.3rem, 7cqi, 1.9rem); line-height: 1.15; }
 .info { margin: 0; line-height: 1.45; font-size: .95rem; }
 .meaning { margin: 12px 0 0; line-height: 1.4; font-size: .85rem; color: var(--muted); }
 .credit {
