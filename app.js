@@ -38,7 +38,8 @@ function show() {
   setTimeout(() => {
     $("sv").textContent = p.sv;
     $("latin").textContent = p.latin;
-    $("info").textContent = p.info;
+    $("uttal").textContent = UTTAL(p.betonad || p.latin);
+    $("standort").textContent = p.standort;
     $("betydelse").textContent = p.betydelse;
   }, card.dataset.ready ? 300 : 0);
   card.dataset.ready = "1";
