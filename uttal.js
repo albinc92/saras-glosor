@@ -135,12 +135,28 @@ const UTTAL = (() => {
   }
 
   function ordUttal(raw) {
-    const accent = raw.indexOf("'");
-    const ord = raw.replace(/'/g, "");
+    // Betoning anges antingen med ' efter stavelsen eller med prick under vokalen (ạ),
+    // som i kursens ståndortslistor. Vid flera prickar gäller den sista.
+    const prick = raw.lastIndexOf("̣");
+    const accent = prick > 0
+      ? { bokstav: raw.slice(0, prick).replace(/̣/g, "").length - 1 }
+      : raw.indexOf("'");
+    const ord = raw.replace(/['̣]/g, "");
     const enheter = ljud(ord);
     const st = stavelser(enheter);
+    // x (ks) mellan vokaler delas: k till föregående stavelse, s till nästa (FRAK-si-nus)
+    st.forEach((s, i) => {
+      if (i > 0 && s[0].b === "x") {
+        s.splice(0, 1, { k: "s", b: "" });
+        st[i - 1].push({ k: "k", b: "x" });
+      }
+    });
     let b;
-    if (accent > 0) {
+    if (typeof accent === "object") {
+      // Hitta stavelsen som innehåller den prickade vokalen
+      let pos = 0;
+      b = st.findIndex((s) => (pos += s.reduce((n, e) => n + e.b.length, 0)) > accent.bokstav);
+    } else if (accent > 0) {
       // Hitta stavelsen som innehåller bokstaven före '
       let pos = 0;
       b = st.findIndex((s) => (pos += s.reduce((n, e) => n + e.b.length, 0)) >= accent);
@@ -157,6 +173,7 @@ const UTTAL = (() => {
 
   return function uttal(namn) {
     return namn
+      .normalize("NFD")
       .toLowerCase()
       .replace(/[’`´]/g, "'")
       .replace(/×|(^|\s)x(?=\s|$)/g, " ")

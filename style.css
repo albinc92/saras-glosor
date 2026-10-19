@@ -238,7 +238,8 @@ footer a { color: inherit; }
 }
 .picker h2 { margin: 0; font-size: 1.3rem; }
 .picker-quick { display: flex; align-items: center; gap: 8px; }
-.picker-quick button {
+.picker-quick button,
+.pick-head button {
   font: inherit;
   font-size: .9rem;
   padding: 6px 14px;
@@ -249,11 +250,37 @@ footer a { color: inherit; }
   cursor: pointer;
 }
 #pick-count { margin-left: auto; color: var(--muted); font-size: .9rem; }
+.pick-groups { overflow-y: auto; }
+.pick-group + .pick-group { margin-top: 18px; }
+/* Kategorirubriken stannar kvar överst medan man scrollar i kategorin */
+.pick-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  background: var(--card);
+  list-style: none;
+  cursor: pointer;
+}
+.pick-head::-webkit-details-marker { display: none; }
+/* Pil som visar om kategorin är ut- eller ihopfälld */
+.pick-head::before {
+  content: "▸";
+  width: 1em;
+  color: var(--muted);
+  transition: transform .15s;
+}
+.pick-group[open] > .pick-head::before { transform: rotate(90deg); }
+.pick-head h3 { margin: 0 auto 0 0; font-size: 1.05rem; }
+.pick-head .pick-n { font-weight: 400; font-size: .85rem; color: var(--muted); }
+.pick-head button { font-size: .8rem; padding: 4px 12px; }
 .pick-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
   border-top: 1px solid rgb(127 127 127 / .25);
 }
 .pick-list label {

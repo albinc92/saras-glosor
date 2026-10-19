@@ -9,6 +9,7 @@ let deck = [];
 let credits = {};
 let pos = 0;
 let imgPos = 0;
+let order = []; // bildernas ordning för aktuell växt – slumpas varje gång växten visas
 
 const shuffle = (a) => {
   for (let i = a.length - 1; i > 0; i--) {
@@ -18,7 +19,9 @@ const shuffle = (a) => {
   return a;
 };
 
-const srcset = (id, n) => WIDTHS.map((w) => `img/${id}-${n}-${w}.webp ${w}w`).join(", ");
+// Perennernas bilder är WebP, trädens JPG (credits anger ext)
+const ext = (id, n) => credits[id]?.[n]?.ext || "webp";
+const srcset = (id, n) => WIDTHS.map((w) => `img/${id}-${n}-${w}.${ext(id, n)} ${w}w`).join(", ");
 
 function preload(p) {
   if (!p) return;
@@ -39,19 +42,21 @@ function show() {
     $("sv").textContent = p.sv;
     $("latin").textContent = p.latin;
     $("uttal").textContent = UTTAL(p.betonad || p.latin);
-    $("standort").textContent = p.standort;
+    $("standort").textContent = STANDORT(p.kryss);
     $("betydelse").textContent = p.betydelse;
   }, card.dataset.ready ? 300 : 0);
   card.dataset.ready = "1";
 
   const n = credits[p.id].length;
-  $("track").replaceChildren(...Array.from({ length: n }, (_, i) => {
+  // Ny slumpad bildordning varje gång, så första bilden inte avslöjar växten
+  order = shuffle([...Array(n).keys()]);
+  $("track").replaceChildren(...order.map((i) => {
     const img = document.createElement("img");
     img.alt = "";
     img.decoding = "async";
     img.sizes = SIZES;
     img.srcset = srcset(p.id, i);
-    img.src = `img/${p.id}-${i}-800.webp`;
+    img.src = `img/${p.id}-${i}-800.${ext(p.id, i)}`;
     return img;
   }));
   $("dots").replaceChildren(...Array.from({ length: n }, () => document.createElement("span")));
@@ -67,7 +72,7 @@ function showImage(i) {
   imgPos = (i + list.length) % list.length;
   $("track").style.transform = `translateX(${-100 * imgPos}%)`;
   [...$("dots").children].forEach((d, j) => d.classList.toggle("on", j === imgPos));
-  const c = list[imgPos];
+  const c = list[order[imgPos]];
   $("credit").innerHTML = `Foto: <a href="${c.page}" target="_blank" rel="noopener">${escapeHtml(c.author || "okänd")}</a>, ${escapeHtml(c.license)}`;
 }
 
@@ -123,9 +128,13 @@ const STORE = "valda-vaxter";
 
 function loadSelection() {
   try {
-    const ids = JSON.parse(localStorage.getItem(STORE));
-    if (Array.isArray(ids)) {
-      const valid = ids.filter((id) => plants.some((p) => p.id === id));
+    const sparat = JSON.parse(localStorage.getItem(STORE));
+    // Gammalt format: bara en lista med valda (då fanns bara perenner)
+    const valda = Array.isArray(sparat) ? sparat : sparat?.valda;
+    const kanda = Array.isArray(sparat) ? plants.filter((p) => p.kategori === "perenn").map((p) => p.id) : sparat?.kanda;
+    if (Array.isArray(valda) && Array.isArray(kanda)) {
+      // Växter som tillkommit sedan sist är valda från start
+      const valid = plants.filter((p) => valda.includes(p.id) || !kanda.includes(p.id)).map((p) => p.id);
       if (valid.length) return new Set(valid);
     }
   } catch {}
@@ -133,7 +142,9 @@ function loadSelection() {
 }
 
 function saveSelection() {
-  try { localStorage.setItem(STORE, JSON.stringify([...selected])); } catch {}
+  try {
+    localStorage.setItem(STORE, JSON.stringify({ valda: [...selected], kanda: plants.map((p) => p.id) }));
+  } catch {}
 }
 
 function buildDeck() {
@@ -144,12 +155,18 @@ function buildDeck() {
 }
 
 const picker = $("picker");
-const boxes = () => [...$("pick-list").querySelectorAll("input")];
+const KATEGORIER = [["perenn", "Perenner"], ["träd", "Träd"]];
+const boxes = (root = $("pick-list")) => [...root.querySelectorAll("input[value]")];
 
 function updatePickCount() {
   const n = boxes().filter((b) => b.checked).length;
   $("pick-count").textContent = `${n} av ${plants.length} valda`;
   $("pick-done").disabled = n === 0;
+  // Antal valda per kategori i rubriken
+  for (const grupp of $("pick-list").children) {
+    const b = boxes(grupp);
+    grupp.querySelector(".pick-n").textContent = `${b.filter((x) => x.checked).length}/${b.length}`;
+  }
 }
 
 $("pick").addEventListener("click", () => {
@@ -158,6 +175,14 @@ $("pick").addEventListener("click", () => {
   picker.showModal();
 });
 $("pick-list").addEventListener("change", updatePickCount);
+// Alla/Inga inom en kategori
+$("pick-list").addEventListener("click", (e) => {
+  const knapp = e.target.closest("[data-alla]");
+  if (!knapp) return;
+  e.preventDefault(); // knappen sitter i <summary> – fäll inte ihop/ut kategorin
+  boxes(knapp.closest("details")).forEach((b) => { b.checked = knapp.dataset.alla === "1"; });
+  updatePickCount();
+});
 $("pick-all").addEventListener("click", () => { boxes().forEach((b) => { b.checked = true; }); updatePickCount(); });
 $("pick-none").addEventListener("click", () => { boxes().forEach((b) => { b.checked = false; }); updatePickCount(); });
 $("pick-done").addEventListener("click", () => {
@@ -172,12 +197,22 @@ Promise.all([
 ]).then(([p, c]) => {
   plants = p;
   credits = c;
-  $("pick-list").replaceChildren(...[...plants].sort((a, b) => a.sv.localeCompare(b.sv, "sv")).map((p) => {
-    const li = document.createElement("li");
-    li.innerHTML = `<label><input type="checkbox" value="${p.id}"><span><span class="s"></span><span class="l"></span></span></label>`;
-    li.querySelector(".s").textContent = p.sv;
-    li.querySelector(".l").textContent = p.latin;
-    return li;
+  $("pick-list").replaceChildren(...KATEGORIER.map(([kat, namn]) => {
+    // Kategorierna är ihopfällda från start – klicka på rubriken för att fälla ut
+    const grupp = document.createElement("details");
+    grupp.className = "pick-group";
+    grupp.innerHTML = `<summary class="pick-head"><h3>${namn} <span class="pick-n"></span></h3>` +
+      `<button type="button" data-alla="1">Alla</button><button type="button" data-alla="0">Inga</button></summary>` +
+      `<ul class="pick-list"></ul>`;
+    grupp.querySelector("ul").replaceChildren(...plants.filter((p) => p.kategori === kat)
+      .sort((a, b) => a.sv.localeCompare(b.sv, "sv")).map((p) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<label><input type="checkbox" value="${p.id}"><span><span class="s"></span><span class="l"></span></span></label>`;
+        li.querySelector(".s").textContent = p.sv;
+        li.querySelector(".l").textContent = p.latin;
+        return li;
+      }));
+    return grupp;
   }));
   selected = loadSelection();
   buildDeck();
