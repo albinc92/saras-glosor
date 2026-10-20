@@ -42,7 +42,13 @@ function show() {
     $("sv").textContent = p.sv;
     $("latin").textContent = p.latin;
     $("uttal").textContent = UTTAL(p.betonad || p.latin);
-    $("standort").textContent = STANDORT(p.kryss);
+    $("standort").replaceChildren(...STANDORT.rader(p.kryss).flatMap(([rubrik, text]) => {
+      const dt = document.createElement("dt");
+      const dd = document.createElement("dd");
+      dt.textContent = rubrik;
+      dd.textContent = text;
+      return [dt, dd];
+    }));
     $("betydelse").textContent = p.betydelse;
   }, card.dataset.ready ? 300 : 0);
   card.dataset.ready = "1";
@@ -96,7 +102,7 @@ $("shuffle").addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (picker.open) return;
+  if (picker.open || !$("quiz").hidden) return;
   if (e.key === "ArrowRight") go(1);
   else if (e.key === "ArrowLeft") go(-1);
   else if (e.key === "ArrowUp") showImage(imgPos - 1);
@@ -189,6 +195,7 @@ $("pick-done").addEventListener("click", () => {
   selected = new Set(boxes().filter((b) => b.checked).map((b) => b.value));
   saveSelection();
   buildDeck();
+  if (!$("quiz").hidden) QUIZ.visa();
 });
 
 Promise.all([
@@ -216,4 +223,16 @@ Promise.all([
   }));
   selected = loadSelection();
   buildDeck();
+  QUIZ.init();
+});
+
+// Växla mellan kort och quiz
+$("mode").addEventListener("click", () => {
+  const quiz = $("quiz").hidden;
+  $("quiz").hidden = !quiz;
+  $("kort").hidden = quiz;
+  $("counter").hidden = quiz;
+  $("mode").textContent = quiz ? "Kort" : "Quiz";
+  $("mode").setAttribute("aria-pressed", quiz);
+  if (quiz) QUIZ.visa();
 });

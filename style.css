@@ -165,7 +165,19 @@ main {
 .latin { margin: 0 0 4px; font-style: italic; font-weight: 600; font-size: clamp(1.3rem, 7cqi, 1.9rem); line-height: 1.15; }
 .uttal { margin: 0 0 16px; font-size: .9rem; color: var(--muted); letter-spacing: .02em; }
 .uttal span { font-weight: 600; color: inherit; }
-.standort { margin: 10px 0 0; line-height: 1.4; font-size: .85rem; }
+/* Ståndort som tabell: rubrik till vänster, värde till höger */
+.standort {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  width: fit-content;
+  margin: 10px auto 0;
+  line-height: 1.35;
+  font-size: .85rem;
+  text-align: left;
+}
+.standort dt { font-weight: 700; }
+.standort dd { margin: 0; }
 .meaning { margin: 12px 0 0; line-height: 1.4; font-size: .85rem; color: var(--muted); }
 .credit {
   position: absolute;
@@ -313,3 +325,47 @@ footer a { color: inherit; }
   .controls button:hover { filter: brightness(1.15); }
   .card:hover .face { box-shadow: 0 14px 40px rgb(0 0 0 / .22); }
 }
+
+/* hidden ska alltid dölja, även element som har display satt (t.ex. main) */
+[hidden] { display: none !important; }
+.header-right { flex-wrap: wrap; justify-content: flex-end; }
+
+/* Quiz */
+.quiz-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: min(560px, 100%);
+  padding: 24px 22px;
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.quiz-q { margin: 0; font-size: 1.25rem; line-height: 1.35; font-weight: 600; }
+.quiz-inputs { display: flex; flex-direction: column; gap: 8px; }
+.quiz-inputs input {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid rgb(127 127 127 / .45);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--fg);
+}
+.quiz-inputs input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.quiz-svar:empty { display: none; }
+.quiz-resultat { margin: 0 0 6px; font-weight: 700; }
+.quiz-rader { margin: 0; padding-left: 1.2em; line-height: 1.45; }
+.quiz-rader .ratt { color: var(--accent); }
+.quiz-rader .ratt::marker { content: "✓ "; }
+.quiz-rader .fel::marker { content: "✗ "; }
+.quiz-alla { margin: 10px 0 0; font-size: .9rem; color: var(--muted); line-height: 1.4; }
+.quiz-knappar { display: flex; gap: 10px; }
+.quiz-knappar button {
+  flex: 1;
+  font: inherit;
+  min-height: 46px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.quiz-ratta { border: 0; background: var(--accent); color: var(--bg); }
+.quiz-ny { border: 1px solid var(--accent); background: transparent; color: var(--accent); }
