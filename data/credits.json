@@ -1646,6 +1646,13 @@
    "author": "Willow",
    "license": "CC BY-SA 2.5",
    "ext": "jpg"
+  },
+  {
+   "file": "Populus tremula 004.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Populus_tremula_004.jpg",
+   "author": "Willow",
+   "license": "CC BY-SA 2.5",
+   "ext": "jpg"
   }
  ],
  "prunus-avium": [
@@ -1718,6 +1725,13 @@
    "file": "Prunus domestica ripe fruits.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Prunus_domestica_ripe_fruits.jpg",
    "author": "Salil Kumar Mukherjee",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Csokonaistrasse, Pflaumenbaum, 2025 Nagyvázsony.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Csokonaistrasse,_Pflaumenbaum,_2025_Nagyv%C3%A1zsony.jpg",
+   "author": "Globetrotter19",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
   }
@@ -2087,6 +2101,13 @@
   {
    "file": "Tilia cordata fruits.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_fruits.jpg",
+   "author": "Gmihail at Serbian Wikipedia",
+   "license": "CC BY-SA 3.0 rs",
+   "ext": "jpg"
+  },
+  {
+   "file": "Tilia cordata tree, Ada Ciganlija.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tilia_cordata_tree,_Ada_Ciganlija.jpg",
    "author": "Gmihail at Serbian Wikipedia",
    "license": "CC BY-SA 3.0 rs",
    "ext": "jpg"
