@@ -76,8 +76,12 @@ const QUIZ = (() => {
     $("quiz-inputs").replaceChildren(...Array.from({ length: fraga.antal }, (_, i) => {
       const inp = document.createElement("input");
       inp.type = "text";
-      inp.setAttribute("list", "vaxtnamn");
       inp.autocomplete = "off";
+      // Telefonens autokorrigering "rättar" annars latinska namn till andra ord
+      inp.setAttribute("autocorrect", "off");
+      inp.setAttribute("autocapitalize", "off");
+      inp.spellcheck = false;
+      inp.enterKeyHint = "send";
       inp.placeholder = `Växt ${i + 1}`;
       return inp;
     }));
@@ -101,6 +105,7 @@ const QUIZ = (() => {
         li.textContent = `${p.sv} – redan svarad`;
       } else if (fraga.ratt.includes(p)) {
         li.className = "ratt";
+        li.dataset.id = p.id;
         li.textContent = `${p.sv} (${p.latin}) – rätt!`;
       } else {
         // Visa vad växten faktiskt trivs i för de kategorier frågan gällde
@@ -114,6 +119,18 @@ const QUIZ = (() => {
       return li;
     });
     const antalRatt = rader.filter((li) => li.className === "ratt").length;
+    // Vid fel: visa en växt som hade varit rätt (som inte redan är besvarad), med latinskt namn
+    const besvarade = new Set(rader.filter((li) => li.className === "ratt").map((li) => li.dataset.id));
+    const kvar = fraga.ratt.filter((p) => !besvarade.has(p.id));
+    rader.forEach((li) => {
+      if (li.className !== "fel") return;
+      const p = kvar.shift();
+      if (!p) return;
+      const r = document.createElement("span");
+      r.className = "quiz-korrekt";
+      r.textContent = `Rätt svar t.ex.: ${p.sv} (${p.latin})`;
+      li.append(document.createElement("br"), r);
+    });
     const rubrik = document.createElement("p");
     rubrik.className = "quiz-resultat";
     rubrik.textContent = `${antalRatt} av ${fraga.antal} rätt`;
@@ -122,16 +139,14 @@ const QUIZ = (() => {
     lista.replaceChildren(...rader);
     const alla = document.createElement("p");
     alla.className = "quiz-alla";
-    alla.textContent = "Alla som passar: " + fraga.ratt.map((p) => p.sv).sort((a, b) => a.localeCompare(b, "sv")).join(", ") + ".";
+    alla.textContent = "Alla som passar: " + [...fraga.ratt].sort((a, b) => a.sv.localeCompare(b.sv, "sv"))
+      .map((p) => `${p.sv} (${p.latin})`).join(", ") + ".";
     $("quiz-svar").replaceChildren(rubrik, lista, alla);
     $("quiz-ratta").hidden = true;
     $("quiz-ny").focus();
   }
 
   function init() {
-    // Förslag medan man skriver – alla växter (inte bara valda) så listan inte avslöjar svaret
-    $("vaxtnamn").replaceChildren(...plants.flatMap((p) => [p.sv, p.latin]).sort((a, b) => a.localeCompare(b, "sv"))
-      .map((n) => Object.assign(document.createElement("option"), { value: n })));
     $("quiz-form").addEventListener("submit", (e) => {
       e.preventDefault();
       if ($("quiz-ratta").hidden) visa(); else ratta();

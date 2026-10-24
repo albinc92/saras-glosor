@@ -358,6 +358,7 @@ footer a { color: inherit; }
 .quiz-rader .ratt { color: var(--accent); }
 .quiz-rader .ratt::marker { content: "✓ "; }
 .quiz-rader .fel::marker { content: "✗ "; }
+.quiz-korrekt { color: var(--fg); font-weight: 600; }
 .quiz-alla { margin: 10px 0 0; font-size: .9rem; color: var(--muted); line-height: 1.4; }
 .quiz-knappar { display: flex; gap: 10px; }
 .quiz-knappar button {
