@@ -39,9 +39,49 @@ const QUIZ = (() => {
     return [k, [alt[i]]];
   }
 
+  // Valörerna och kategorinamnen precis som i kursens ståndortstabell
+  const TABELL = {
+    ljus: ["Ljusförhållande", { S: "Sol (> 8 h)", H: "Halvskugga (> 4 h)", Sk: "Skugga (< 2 h)" }],
+    fukt: ["Fuktnivå", { T: "Torrt", TF: "Torrt-friskt", F: "Friskt/medel", Fu: "Fuktigt", B: "Blött" }],
+    naring: ["Näringsnivå", { Ma: "Magert", Me: "Medel", N: "Näringsrikt" }],
+    ph: ["pH-nivå", { L: "Lågt (< 5,5)", M: "Medel (5,5–7,0)", H: "Högt/kalkhaltigt (> 7,0)" }],
+    jord: ["Jordförhållande", { ler: "Mineraljord – lerig", mel: "Mineraljord – mellan", sand: "Mineraljord – sandig", hum: "Humusrik jord", mull: "Mull/torvbaserad jord" }],
+  };
+
+  // "Nämn 2 växter som föredrar ”Lågt (< 5,5)” i kategorin pH-nivå."
+  function kategoriFraga(vaxter) {
+    // Fisher–Yates – sort med slumpad jämförelse blandar inte jämnt
+    const blanda = (a) => {
+      const b = [...a];
+      for (let i = b.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [b[i], b[j]] = [b[j], b[i]];
+      }
+      return b;
+    };
+    // Kategorin väljs först så alla kategorier kommer lika ofta, sedan en valör som fungerar i den
+    for (const k of blanda(ORDNING)) {
+      const [kategori, valorer] = TABELL[k];
+      for (const kod of blanda(Object.keys(valorer))) {
+        const krav = [[k, [kod]]];
+        const ratt = vaxter.filter((p) => passar(p, krav));
+        const antal = ratt.length >= 6 && Math.random() < 0.4 ? 3 : 2;
+        // Valörer som nästan alla har (t.ex. medel-pH) säger inget – hoppa över dem
+        if (ratt.length < antal || ratt.length > vaxter.length * 0.75) continue;
+        return { krav, ratt, antal, text: `Nämn ${antal} växter som föredrar ”${valorer[kod]}” i kategorin ${kategori}.` };
+      }
+    }
+    return null;
+  }
+
   function nyFraga() {
     const vaxter = pool();
     if (vaxter.length < 4) return null;
+    // Varannan fråga gäller en enda kategori, varannan en kombination
+    if (Math.random() < 0.5) {
+      const f = kategoriFraga(vaxter);
+      if (f) return f;
+    }
     // Frågan ska skilja ut växterna: minst så många som efterfrågas passar, men inte nästan alla
     for (let forsok = 0; forsok < 500; forsok++) {
       const antalKrav = slump([1, 2, 2, 2, 3]);
