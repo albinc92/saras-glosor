@@ -7,7 +7,7 @@ const path = require("path");
 const FILE = path.join(__dirname, "..", "data", "plants.json");
 const UA = { "User-Agent": "saras-glosor/1.0 (https://github.com/albinc92/saras-glosor)" };
 // Undvik herbarieark, teckningar, kartor m.m. som inte visar växten som den ser ut
-const NEJ = /herbar|illustration|drawing|map|distribution|köhler|thomé|plate|sketch|diagram|\.svg|\.tif|\.gif|stamp|logo|wood ?sample|veneer|seed ?bank|epidermis|stomata|print|section|root|wortel|damage|gall|larva|caterpillar| on |infest|fungus|disease|bonsai|cross|wellcome|mehltau|mildew|wond|beschadig|bud|seedling|sapling|schwebfliege|melaphis|insect|fly|bee|bug|beetle|aphid|apis|bombus|knop|mhnt\.bot|microscope|twig|pollinat/i;
+const NEJ = /herbar|illustration|drawing|map|distribution|köhler|thomé|plate|sketch|diagram|\.svg|\.tif|\.gif|stamp|logo|wood ?sample|veneer|seed ?bank|epidermis|stomata|print|section|root|wortel|damage|gall|larva|caterpillar| on |infest|fungus|disease|bonsai|cross|wellcome|mehltau|mildew|wond|beschadig|bud|seedling|sapling|schwebfliege|melaphis|insect|fly|bee|bug|beetle|aphid|apis|bombus|knop|mhnt\.bot|microscope|twig|pollinat| mine |sturm|scar/i;
 
 async function api(host, params) {
   const url = `https://${host}/w/api.php?` + new URLSearchParams({ format: "json", formatversion: "2", ...params });
@@ -51,6 +51,7 @@ const ANTAL = 5;
 const MOTIV = {
   "träd": ["leaf|leaves", "bark", "flower|flowers|blossom", "fruit|fruits|seeds", "tree"],
   "perenn": ["flower|flowers", "leaves|leaf", "seed head|fruit", "garden|habit", ""],
+  "buske": ["flower|flowers|blossom", "leaf|leaves", "fruit|fruits|berries", "shrub|hedge|habit", ""],
 };
 
 (async () => {

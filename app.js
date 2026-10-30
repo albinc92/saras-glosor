@@ -19,7 +19,7 @@ const shuffle = (a) => {
   return a;
 };
 
-// Perennernas bilder är WebP, trädens JPG (credits anger ext)
+// Perennernas bilder är WebP, trädens och buskarnas JPG (credits anger ext)
 const ext = (id, n) => credits[id]?.[n]?.ext || "webp";
 const srcset = (id, n) => WIDTHS.map((w) => `img/${id}-${n}-${w}.${ext(id, n)} ${w}w`).join(", ");
 
@@ -161,7 +161,7 @@ function buildDeck() {
 }
 
 const picker = $("picker");
-const KATEGORIER = [["perenn", "Perenner"], ["träd", "Träd"]];
+const KATEGORIER = [["perenn", "Perenner"], ["träd", "Träd"], ["buske", "Buskar"]];
 const boxes = (root = $("pick-list")) => [...root.querySelectorAll("input[value]")];
 
 function updatePickCount() {
