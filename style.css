@@ -370,3 +370,99 @@ footer a { color: inherit; }
 }
 .quiz-ratta { border: 0; background: var(--accent); color: var(--bg); }
 .quiz-ny { border: 1px solid var(--accent); background: transparent; color: var(--accent); }
+
+/* Lägesväljare: Kort | Quiz | Ståndort */
+header { flex-wrap: wrap; gap: 8px; }
+.lagen {
+  display: inline-flex;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.lagen button {
+  font: inherit;
+  font-size: .85rem;
+  padding: 5px 11px;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.lagen button + button { border-left: 1px solid var(--accent); }
+.lagen button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+
+/* Ståndortskarta */
+.karta { justify-content: flex-start; width: 100%; max-width: 560px; margin: 0 auto; gap: 10px; padding-bottom: 16px; }
+.karta-verktyg { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%; }
+.karta-flikar { display: flex; flex-wrap: wrap; gap: 6px; margin-right: auto; }
+.karta-flikar button, .karta-ova {
+  font: inherit;
+  font-size: .85rem;
+  padding: 5px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.karta-flikar button[aria-pressed="true"], .karta-ova[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.karta-tips { margin: 0; width: 100%; font-size: .8rem; color: var(--muted); }
+
+.karta-tabell {
+  width: 100%;
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 6px 10px 10px;
+}
+/* Namn till vänster, en kolumn per valör */
+.karta-rad {
+  display: grid;
+  grid-template-columns: minmax(8em, 1.3fr) repeat(var(--kol), minmax(0, 1fr));
+  align-items: center;
+  column-gap: 0;
+  padding: 1px 0;
+}
+.karta-rad.ny-grupp { border-top: 1px solid rgb(127 127 127 / .35); margin-top: 3px; padding-top: 5px; }
+.karta-huvud {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--card);
+  padding: 6px 0;
+  border-bottom: 2px solid rgb(127 127 127 / .35);
+}
+.karta-kol {
+  font: inherit;
+  font-size: .7rem;
+  font-weight: 600;
+  padding: 4px 1px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  line-height: 1.15;
+}
+.karta-kol[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.karta-namn {
+  font: inherit;
+  grid-row: 1;
+  text-align: left;
+  padding: 2px 4px 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  min-width: 0;
+}
+.karta-namn { font-size: .85rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.karta-namn:hover { text-decoration: underline; }
+/* Bandet går obrutet över alla valörer växten trivs i */
+.karta-band, .karta-prick { grid-row: 1; height: 14px; border-radius: 999px; }
+.karta-prick { width: 14px; justify-self: center; }
+.karta-tabell.markerad .karta-rad.nedtonad { opacity: .25; }
+/* Övningsläge: banden döljs tills man trycker på raden */
+.karta-tabell.ova .karta-rad:not(.karta-huvud):not(.visad) :is(.karta-band, .karta-prick) { visibility: hidden; }
+.karta-tabell.ova .karta-rad:not(.karta-huvud) { cursor: pointer; }

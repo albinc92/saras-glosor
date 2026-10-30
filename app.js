@@ -102,7 +102,7 @@ $("shuffle").addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (picker.open || !$("quiz").hidden) return;
+  if (picker.open || lage !== "kort") return;
   if (e.key === "ArrowRight") go(1);
   else if (e.key === "ArrowLeft") go(-1);
   else if (e.key === "ArrowUp") showImage(imgPos - 1);
@@ -195,7 +195,8 @@ $("pick-done").addEventListener("click", () => {
   selected = new Set(boxes().filter((b) => b.checked).map((b) => b.value));
   saveSelection();
   buildDeck();
-  if (!$("quiz").hidden) QUIZ.visa();
+  if (lage === "quiz") QUIZ.visa();
+  if (lage === "karta") KARTA.visa();
 });
 
 Promise.all([
@@ -224,15 +225,29 @@ Promise.all([
   selected = loadSelection();
   buildDeck();
   QUIZ.init();
+  KARTA.init();
 });
 
-// Växla mellan kort och quiz
-$("mode").addEventListener("click", () => {
-  const quiz = $("quiz").hidden;
-  $("quiz").hidden = !quiz;
-  $("kort").hidden = quiz;
-  $("counter").hidden = quiz;
-  $("mode").textContent = quiz ? "Kort" : "Quiz";
-  $("mode").setAttribute("aria-pressed", quiz);
-  if (quiz) QUIZ.visa();
+// Lägen: kort, quiz och ståndortskarta
+let lage = "kort";
+function setLage(l) {
+  lage = l;
+  for (const id of ["kort", "quiz", "karta"]) $(id).hidden = id !== l;
+  $("counter").hidden = l !== "kort";
+  document.querySelectorAll("#lagen button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lage === l));
+  if (l === "quiz") QUIZ.visa();
+  if (l === "karta") KARTA.visa();
+}
+$("lagen").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-lage]");
+  if (b && b.dataset.lage !== lage) setLage(b.dataset.lage);
 });
+
+// Från kartan: visa en viss växts kort
+function visaKort(id) {
+  const i = deck.findIndex((p) => p.id === id);
+  if (i < 0) return;
+  pos = i;
+  setLage("kort");
+  show();
+}

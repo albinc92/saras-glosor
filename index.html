@@ -14,7 +14,11 @@
   <h1>🌿 Växtglosor</h1>
   <div class="header-right">
     <span id="counter" aria-live="polite"></span>
-    <button id="mode" class="pick" aria-pressed="false">Quiz</button>
+    <nav id="lagen" class="lagen" aria-label="Läge">
+      <button type="button" data-lage="kort" aria-pressed="true">Kort</button>
+      <button type="button" data-lage="quiz" aria-pressed="false">Quiz</button>
+      <button type="button" data-lage="karta" aria-pressed="false">Ståndort</button>
+    </nav>
     <button id="pick" class="pick">Välj växter</button>
   </div>
 </header>
@@ -72,6 +76,15 @@
   </form>
 </main>
 
+<main id="karta" class="karta" hidden>
+  <div class="karta-verktyg">
+    <div id="karta-flikar" class="karta-flikar" role="group" aria-label="Kategori"></div>
+    <button type="button" id="karta-ova" class="karta-ova" aria-pressed="false">Öva: dölj band</button>
+  </div>
+  <p class="karta-tips"><span id="karta-antal"></span> · Tryck på en kolumn för att markera, på ett namn för att se kortet.</p>
+  <div id="karta-tabell" class="karta-tabell"></div>
+</main>
+
 <footer>
   Bilder från <a href="https://commons.wikimedia.org">Wikimedia Commons</a> under fria licenser.
 </footer>
@@ -80,5 +93,6 @@
 <script src="standort.js"></script>
 <script src="app.js"></script>
 <script src="quiz.js"></script>
+<script src="karta.js"></script>
 </body>
 </html>
