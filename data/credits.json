@@ -2187,6 +2187,50 @@
    "ext": "jpg"
   }
  ],
+ "aronia-melanocarpa": [
+  {
+   "file": "Aronia melanocarpa 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_1.jpg",
+   "author": "Nadiatalent",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Aronia melanocarpa kz01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_kz01.jpg",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Aronia leaves on a rainy autumn day in Tuntorp 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aronia_leaves_on_a_rainy_autumn_day_in_Tuntorp_1.jpg",
+   "author": "W.carter",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Aronia melanocarpa berries outside the Toledo Museum of Art.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_berries_outside_the_Toledo_Museum_of_Art.jpg",
+   "author": "Jason Zhang",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Aronia melanocarpa (491771406).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_(491771406).jpg",
+   "author": "Linda N. from Chicago, USA",
+   "license": "CC BY 2.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Aronia hedge with berries in autumn in Tuntorp 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aronia_hedge_with_berries_in_autumn_in_Tuntorp_1.jpg",
+   "author": "W.carter",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  }
+ ],
  "berberis-thunbergii": [
   {
    "file": "Berberis thunb frt.jpg",
@@ -2221,6 +2265,43 @@
    "page": "https://commons.wikimedia.org/wiki/File:(ms)_Berberis_thunbergii_11.jpg",
    "author": "Hladac",
    "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  }
+ ],
+ "buddleja-davidii": [
+  {
+   "file": "Buddleja davidii inflorescence high-detail DSC1696-1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_inflorescence_high-detail_DSC1696-1.jpg",
+   "author": "Franz van Duns",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Buddleja davidii at Nuthurst West Sussex England 01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_at_Nuthurst_West_Sussex_England_01.jpg",
+   "author": "Acabashi",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Buddleja davidii 03.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_03.JPG",
+   "author": "AfroBrazilian: Aleksandrs Balodis",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Buddleja davidii 2018-07-09 4504.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_2018-07-09_4504.jpg",
+   "author": "Salicyna",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Buddleja davidii Prague 2013 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_Prague_2013_1.jpg",
+   "author": "Karelj",
+   "license": "CC BY-SA 3.0",
    "ext": "jpg"
   }
  ],
@@ -2296,6 +2377,13 @@
    "author": "Ivar Leidus",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
+  },
+  {
+   "file": "Corylus avellana 0001.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Corylus_avellana_0001.JPG",
+   "author": "H. Zell",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
   }
  ],
  "cotinus-coggygria": [
@@ -2369,6 +2457,13 @@
    "page": "https://commons.wikimedia.org/wiki/File:Cotoneaster_lucidus_(5071621517).jpg",
    "author": "Matt Lavin from Bozeman, Montana, USA",
    "license": "CC BY-SA 2.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Cotoneaster acutifolius var. lucidus in Litovsky Garden 2026-08-19.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cotoneaster_acutifolius_var._lucidus_in_Litovsky_Garden_2026-08-19.jpg",
+   "author": "Afanasovich",
+   "license": "CC BY 4.0",
    "ext": "jpg"
   }
  ],
@@ -2444,6 +2539,13 @@
    "author": "NPS Photo",
    "license": "Public domain",
    "ext": "jpg"
+  },
+  {
+   "file": "20240611 shrubby cinquefoil golden hardhack pięciornik krzewiasty Dasiphora fruticosa Katowice Powstańców 03.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:20240611_shrubby_cinquefoil_golden_hardhack_pi%C4%99ciornik_krzewiasty_Dasiphora_fruticosa_Katowice_Powsta%C5%84c%C3%B3w_03.jpg",
+   "author": "Abraham",
+   "license": "CC BY 4.0",
+   "ext": "jpg"
   }
  ],
  "euonymus-europaeus": [
@@ -2480,6 +2582,13 @@
    "page": "https://commons.wikimedia.org/wiki/File:Spindle_(Euonymus_europaeus).jpg",
    "author": "AnemoneProjectors (talk)",
    "license": "CC BY-SA 2.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Euonymus europaeus 001.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Euonymus_europaeus_001.JPG",
+   "author": "H. Zell",
+   "license": "CC BY-SA 3.0",
    "ext": "jpg"
   }
  ],
@@ -2629,6 +2738,13 @@
    "author": "Michel Langeveld",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
+  },
+  {
+   "file": "'Lonicera periclymenum' ~ Honeysuckle at Nuthurst, West Sussex, England 02.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:%27Lonicera_periclymenum%27_~_Honeysuckle_at_Nuthurst,_West_Sussex,_England_02.JPG",
+   "author": "Acabashi",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
   }
  ],
  "neillia-incisa-crispa": [
@@ -2703,6 +2819,13 @@
    "author": "Tsyganov Sergey",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
+  },
+  {
+   "file": "Philadelphus coronarius Oxford 2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Philadelphus_coronarius_Oxford_2.jpg",
+   "author": "Kastrel",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
   }
  ],
  "prunus-spinosa": [
@@ -2738,6 +2861,13 @@
    "file": "Prunus spinosa .jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Prunus_spinosa_.jpg",
    "author": "Arnstein Rønning",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Oratuomi - Prunus spinosa DSC02660 C.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Oratuomi_-_Prunus_spinosa_DSC02660_C.JPG",
+   "author": "Anneli Salo",
    "license": "CC BY-SA 3.0",
    "ext": "jpg"
   }
@@ -2776,6 +2906,13 @@
    "page": "https://commons.wikimedia.org/wiki/File:Ribes_alpinum_2019-03-30_8429.jpg",
    "author": "Salicyna",
    "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Ribes alpinum - bush (aka).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ribes_alpinum_-_bush_(aka).jpg",
+   "author": "André Karwath aka Aka",
+   "license": "CC BY-SA 2.5",
    "ext": "jpg"
   }
  ],
@@ -2816,6 +2953,43 @@
    "ext": "jpg"
   }
  ],
+ "sambucus-nigra": [
+  {
+   "file": "Sambucus nigra 004.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_004.jpg",
+   "author": "Willow",
+   "license": "CC BY 2.5",
+   "ext": "jpg"
+  },
+  {
+   "file": "Sambucus nigra kz18.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_kz18.jpg",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Sambucus nigra-leaves01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra-leaves01.jpg",
+   "author": "Varmin",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Sambucus nigra fruit 3.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_fruit_3.JPG",
+   "author": "Andrikkos",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Sambucus nigra kz20.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_kz20.jpg",
+   "author": "Krzysztof Ziarnek, Kenraiz",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  }
+ ],
  "spiraea-betulifolia-tor": [
   {
    "file": "Spiraea betulifolia 1.JPG",
@@ -2850,6 +3024,13 @@
    "page": "https://commons.wikimedia.org/wiki/File:Spiraea_betulifolia.jpg",
    "author": "Steve Law",
    "license": "CC BY-SA 2.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Sedum telephium.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sedum_telephium.jpg",
+   "author": "Prazak",
+   "license": "CC BY-SA 3.0",
    "ext": "jpg"
   }
  ],
@@ -2925,6 +3106,13 @@
    "author": "Tess Mattew",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
+  },
+  {
+   "file": "Symphoricarpos albus 001.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Symphoricarpos_albus_001.JPG",
+   "author": "H. Zell",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
   }
  ],
  "syringa-vulgaris": [
@@ -2961,6 +3149,13 @@
    "page": "https://commons.wikimedia.org/wiki/File:2024.08.24_Syringa_vulgaris_(fruit)_in_Brasla%C5%AD_Lakes_National_Park,_Vitebsk_Region,_Belarus_01.jpg",
    "author": "Tess Mattew",
    "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Syringa vulgaris 001.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Syringa_vulgaris_001.JPG",
+   "author": "H. Zell",
+   "license": "CC BY-SA 3.0",
    "ext": "jpg"
   }
  ],
@@ -3001,6 +3196,43 @@
    "ext": "jpg"
   }
  ],
+ "weigela-florida": [
+  {
+   "file": "Dipsacales - Weigela florida - 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Dipsacales_-_Weigela_florida_-_1.jpg",
+   "author": "Emőke Dénes",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Weigela florida, red, flowers and stems.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Weigela_florida,_red,_flowers_and_stems.jpg",
+   "author": "Thadguidry",
+   "license": "CC0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Weigela florida-Weigélie fleurie-Feuilles-20211018.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Weigela_florida-Weig%C3%A9lie_fleurie-Feuilles-20211018.jpg",
+   "author": "Daniel VILLAFRUELA",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Ruhland, Hinter dem Markt, Liebliche Weigelie am Parkplatz blühend, Spätfrühling, 01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ruhland,_Hinter_dem_Markt,_Liebliche_Weigelie_am_Parkplatz_bl%C3%BChend,_Sp%C3%A4tfr%C3%BChling,_01.jpg",
+   "author": "Wilhelm Zimmerling PAR",
+   "license": "CC BY-SA 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Weigela florida BG Tallinn.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Weigela_florida_BG_Tallinn.jpg",
+   "author": "Ivar Leidus",
+   "license": "CC BY-SA 3.0",
+   "ext": "jpg"
+  }
+ ],
  "hydrangea-macrophylla": [
   {
    "file": "(Natural) Hydrangea macrophylla, Iwafune, Isumi, Chiba, Japan 2.jpg",
@@ -3036,42 +3268,12 @@
    "author": "Basile Morin",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
-  }
- ],
- "cornus-sanguinea": [
-  {
-   "file": "(MHNT) Cornus sanguinea - leaves and flowers.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Cornus_sanguinea_-_leaves_and_flowers.jpg",
-   "author": "Didier Descouens",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
   },
   {
-   "file": "(MHNT) Cornus sanguinea - Inflorescence.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Cornus_sanguinea_-_Inflorescence.jpg",
-   "author": "Didier Descouens",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Cornus sanguinea 2 RF.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_2_RF.jpg",
-   "author": "Robert Flogaus-Faust",
-   "license": "CC BY 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Cornus sanguinea in May.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_in_May.jpg",
-   "author": "Ввласенко",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Cornus sanguinea fruits.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_fruits.jpg",
-   "author": "MurielBendel",
-   "license": "CC BY-SA 4.0",
+   "file": "Flowered hedge flowers hydrangea.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flowered_hedge_flowers_hydrangea.jpg",
+   "author": "Titus Tscharntke",
+   "license": "Public domain",
    "ext": "jpg"
   }
  ],
@@ -3110,153 +3312,56 @@
    "author": "Wilhelm Zimmerling PAR",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
-  }
- ],
- "aronia-melanocarpa": [
-  {
-   "file": "Aronia melanocarpa 1.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_1.jpg",
-   "author": "Nadiatalent",
-   "license": "CC BY-SA 3.0",
-   "ext": "jpg"
   },
   {
-   "file": "Aronia melanocarpa kz01.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_kz01.jpg",
-   "author": "Krzysztof Ziarnek, Kenraiz",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Aronia leaves on a rainy autumn day in Tuntorp 1.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Aronia_leaves_on_a_rainy_autumn_day_in_Tuntorp_1.jpg",
-   "author": "W.carter",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Aronia melanocarpa berries outside the Toledo Museum of Art.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_berries_outside_the_Toledo_Museum_of_Art.jpg",
-   "author": "Jason Zhang",
-   "license": "CC BY-SA 3.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Aronia melanocarpa (491771406).jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Aronia_melanocarpa_(491771406).jpg",
-   "author": "Linda N. from Chicago, USA",
-   "license": "CC BY 2.0",
+   "file": "Malus sieboldii A.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Malus_sieboldii_A.jpg",
+   "author": "Wouter Hagens",
+   "license": "Public domain",
    "ext": "jpg"
   }
  ],
- "buddleja-davidii": [
+ "cornus-sanguinea": [
   {
-   "file": "Buddleja davidii inflorescence high-detail DSC1696-1.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_inflorescence_high-detail_DSC1696-1.jpg",
-   "author": "Franz van Duns",
+   "file": "(MHNT) Cornus sanguinea - leaves and flowers.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Cornus_sanguinea_-_leaves_and_flowers.jpg",
+   "author": "Didier Descouens",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
   },
   {
-   "file": "Buddleja davidii at Nuthurst West Sussex England 01.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_at_Nuthurst_West_Sussex_England_01.jpg",
-   "author": "Acabashi",
+   "file": "(MHNT) Cornus sanguinea - Inflorescence.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:(MHNT)_Cornus_sanguinea_-_Inflorescence.jpg",
+   "author": "Didier Descouens",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
   },
   {
-   "file": "Buddleja davidii 03.JPG",
-   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_03.JPG",
-   "author": "AfroBrazilian: Aleksandrs Balodis",
+   "file": "Cornus sanguinea 2 RF.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_2_RF.jpg",
+   "author": "Robert Flogaus-Faust",
+   "license": "CC BY 4.0",
+   "ext": "jpg"
+  },
+  {
+   "file": "Cornus sanguinea in May.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_in_May.jpg",
+   "author": "Ввласенко",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
   },
   {
-   "file": "Buddleja davidii 2018-07-09 4504.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_2018-07-09_4504.jpg",
-   "author": "Salicyna",
+   "file": "Cornus sanguinea fruits.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_fruits.jpg",
+   "author": "MurielBendel",
    "license": "CC BY-SA 4.0",
    "ext": "jpg"
   },
   {
-   "file": "Buddleja davidii Prague 2013 1.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Buddleja_davidii_Prague_2013_1.jpg",
-   "author": "Karelj",
-   "license": "CC BY-SA 3.0",
-   "ext": "jpg"
-  }
- ],
- "sambucus-nigra": [
-  {
-   "file": "Sambucus nigra 004.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_004.jpg",
-   "author": "Willow",
-   "license": "CC BY 2.5",
-   "ext": "jpg"
-  },
-  {
-   "file": "Sambucus nigra kz18.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_kz18.jpg",
-   "author": "Krzysztof Ziarnek, Kenraiz",
+   "file": "Cornus sanguinea Midwinter Fire 0zz.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cornus_sanguinea_Midwinter_Fire_0zz.jpg",
+   "author": "Photo by David J. Stang",
    "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Sambucus nigra-leaves01.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra-leaves01.jpg",
-   "author": "Varmin",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Sambucus nigra fruit 3.JPG",
-   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_fruit_3.JPG",
-   "author": "Andrikkos",
-   "license": "CC BY-SA 3.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Sambucus nigra kz20.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_kz20.jpg",
-   "author": "Krzysztof Ziarnek, Kenraiz",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  }
- ],
- "weigela-florida": [
-  {
-   "file": "Dipsacales - Weigela florida - 1.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Dipsacales_-_Weigela_florida_-_1.jpg",
-   "author": "Emőke Dénes",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Weigela florida, red, flowers and stems.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Weigela_florida,_red,_flowers_and_stems.jpg",
-   "author": "Thadguidry",
-   "license": "CC0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Weigela florida-Weigélie fleurie-Feuilles-20211018.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Weigela_florida-Weig%C3%A9lie_fleurie-Feuilles-20211018.jpg",
-   "author": "Daniel VILLAFRUELA",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Ruhland, Hinter dem Markt, Liebliche Weigelie am Parkplatz blühend, Spätfrühling, 01.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Ruhland,_Hinter_dem_Markt,_Liebliche_Weigelie_am_Parkplatz_bl%C3%BChend,_Sp%C3%A4tfr%C3%BChling,_01.jpg",
-   "author": "Wilhelm Zimmerling PAR",
-   "license": "CC BY-SA 4.0",
-   "ext": "jpg"
-  },
-  {
-   "file": "Weigela florida BG Tallinn.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Weigela_florida_BG_Tallinn.jpg",
-   "author": "Ivar Leidus",
-   "license": "CC BY-SA 3.0",
    "ext": "jpg"
   }
  ]
