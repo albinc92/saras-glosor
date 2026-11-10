@@ -371,7 +371,17 @@ footer a { color: inherit; }
 .quiz-ratta { border: 0; background: var(--accent); color: var(--bg); }
 .quiz-ny { border: 1px solid var(--accent); background: transparent; color: var(--accent); }
 
-/* Lägesväljare: Kort | Quiz | Ståndort */
+/* Stavning: bygger på quizets kort */
+.stav-raknare { margin: 0 0 -8px; font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.quiz-inputs input.latin-svar { font-style: italic; }
+.stav-resultat { margin: 0; font-weight: 700; font-size: 1.1rem; }
+.stav-resultat.ratt { color: var(--accent); }
+.stav-resultat.fel { color: #b3261e; }
+@media (prefers-color-scheme: dark) { .stav-resultat.fel { color: #f2b8b5; } }
+.stav-facit { margin: 4px 0 0; font-size: 1.05rem; }
+.stav-facit em { font-weight: 700; }
+
+/* Lägesväljare: Kort | Stavning | Quiz | Ståndort */
 header { flex-wrap: wrap; gap: 8px; }
 .lagen {
   display: inline-flex;

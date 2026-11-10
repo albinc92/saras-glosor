@@ -16,6 +16,7 @@
     <span id="counter" aria-live="polite"></span>
     <nav id="lagen" class="lagen" aria-label="Läge">
       <button type="button" data-lage="kort" aria-pressed="true">Kort</button>
+      <button type="button" data-lage="stavning" aria-pressed="false">Stavning</button>
       <button type="button" data-lage="quiz" aria-pressed="false">Quiz</button>
       <button type="button" data-lage="karta" aria-pressed="false">Ståndort</button>
     </nav>
@@ -64,6 +65,21 @@
   </nav>
 </main>
 
+<main id="stavning" class="quiz" hidden>
+  <form id="stav-form" class="quiz-card" autocomplete="off">
+    <p class="stav-raknare" id="stav-raknare"></p>
+    <p id="stav-q" class="quiz-q"></p>
+    <div class="quiz-inputs">
+      <input id="stav-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-labelledby="stav-q">
+    </div>
+    <div id="stav-svar" class="quiz-svar" aria-live="polite"></div>
+    <div class="quiz-knappar">
+      <button id="stav-skicka" class="quiz-ratta">Skicka</button>
+      <button type="button" id="stav-nasta" class="quiz-ratta" hidden>Nästa</button>
+    </div>
+  </form>
+</main>
+
 <main id="quiz" class="quiz" hidden>
   <form id="quiz-form" class="quiz-card" autocomplete="off">
     <p id="quiz-q" class="quiz-q"></p>
@@ -93,6 +109,7 @@
 <script src="standort.js"></script>
 <script src="app.js"></script>
 <script src="quiz.js"></script>
+<script src="stavning.js"></script>
 <script src="karta.js"></script>
 </body>
 </html>

@@ -195,6 +195,7 @@ $("pick-done").addEventListener("click", () => {
   selected = new Set(boxes().filter((b) => b.checked).map((b) => b.value));
   saveSelection();
   buildDeck();
+  if (lage === "stavning") STAVNING.visa();
   if (lage === "quiz") QUIZ.visa();
   if (lage === "karta") KARTA.visa();
 });
@@ -225,6 +226,7 @@ Promise.all([
   selected = loadSelection();
   buildDeck();
   QUIZ.init();
+  STAVNING.init();
   KARTA.init();
 });
 
@@ -232,9 +234,10 @@ Promise.all([
 let lage = "kort";
 function setLage(l) {
   lage = l;
-  for (const id of ["kort", "quiz", "karta"]) $(id).hidden = id !== l;
+  for (const id of ["kort", "stavning", "quiz", "karta"]) $(id).hidden = id !== l;
   $("counter").hidden = l !== "kort";
   document.querySelectorAll("#lagen button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lage === l));
+  if (l === "stavning") STAVNING.visa();
   if (l === "quiz") QUIZ.visa();
   if (l === "karta") KARTA.visa();
 }
