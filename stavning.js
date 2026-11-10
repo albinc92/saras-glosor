@@ -28,17 +28,13 @@ const STAVNING = (() => {
     const p = lista[i];
     fraga = { p, tillLatin: Math.random() < 0.5 };
     const q = $("stav-q");
-    q.replaceChildren("Vad heter ");
-    if (fraga.tillLatin) q.append(p.sv);
-    else q.append(Object.assign(document.createElement("em"), { textContent: p.latin }));
-    q.append(fraga.tillLatin ? " på latin?" : " på svenska?");
+    q.textContent = `Vad heter ${fraga.tillLatin ? p.sv : p.latin} på ${fraga.tillLatin ? "latin" : "svenska"}?`;
 
     $("stav-svar").replaceChildren();
     const inp = $("stav-input");
     inp.value = "";
     inp.disabled = false;
     inp.placeholder = fraga.tillLatin ? "Latinskt namn" : "Svenskt namn";
-    inp.classList.toggle("latin-svar", fraga.tillLatin);
     $("stav-skicka").hidden = false;
     $("stav-nasta").hidden = true;
     $("stav-raknare").textContent = `${i + 1} / ${lista.length}`;
@@ -59,7 +55,7 @@ const STAVNING = (() => {
     rubrik.textContent = ratt ? "✓ Rätt!" : nara ? "✗ Nästan!" : "✗ Fel";
     const facit = document.createElement("p");
     facit.className = "stav-facit";
-    const namn = Object.assign(document.createElement(tillLatin ? "em" : "strong"), { textContent: tillLatin ? p.latin : p.sv });
+    const namn = Object.assign(document.createElement("strong"), { textContent: tillLatin ? p.latin : p.sv });
     if (ratt) facit.append(namn);
     else facit.append(tillLatin ? "Rätt stavning: " : "Rätt svar: ", namn);
     $("stav-svar").replaceChildren(rubrik, facit);
