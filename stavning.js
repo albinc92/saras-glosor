@@ -7,6 +7,8 @@ const STAVNING = (() => {
   let lista = [];
   let i = 0;
   let fraga = null; // { p, tillLatin }
+  let antalRatt = 0;
+  let klar = false;
 
   // Jämför utan hänsyn till skiftläge, accenter, ×, citattecken och extra mellanslag
   const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
@@ -37,7 +39,7 @@ const STAVNING = (() => {
     inp.placeholder = fraga.tillLatin ? "Latinskt namn" : "Svenskt namn";
     $("stav-skicka").hidden = false;
     $("stav-nasta").hidden = true;
-    $("stav-raknare").textContent = `${i + 1} / ${lista.length}`;
+    $("stav-raknare").textContent = `${i + 1} / ${lista.length} · ${antalRatt} rätt`;
     inp.focus({ preventScroll: true });
   }
 
@@ -49,6 +51,8 @@ const STAVNING = (() => {
     const mojliga = facitNamn.map(norm);
     const ratt = mojliga.includes(norm(svar));
     const nara = !ratt && Math.min(...mojliga.map((r) => avstand(norm(svar), r))) <= 2;
+    if (ratt) antalRatt++;
+    $("stav-raknare").textContent = `${i + 1} / ${lista.length} · ${antalRatt} rätt`;
 
     const rubrik = document.createElement("p");
     rubrik.className = "stav-resultat " + (ratt ? "ratt" : "fel");
@@ -62,23 +66,39 @@ const STAVNING = (() => {
 
     $("stav-input").disabled = true;
     $("stav-skicka").hidden = true;
+    $("stav-nasta").textContent = i === lista.length - 1 ? "Visa resultat" : "Nästa";
     $("stav-nasta").hidden = false;
     $("stav-nasta").focus({ preventScroll: true });
   }
 
+  // Slutresultat efter ett helt varv
+  function resultat() {
+    klar = true;
+    const andel = antalRatt / lista.length;
+    $("stav-raknare").textContent = "";
+    $("stav-q").textContent = `Klart! ${antalRatt} av ${lista.length} rätt`;
+    const kommentar = document.createElement("p");
+    kommentar.className = "stav-facit";
+    kommentar.textContent = andel === 1 ? "Alla rätt – snyggt!" : andel >= 0.8 ? "Riktigt bra!" : andel >= 0.5 ? "Bra jobbat – kör ett varv till!" : "Öva lite till, det sitter snart!";
+    $("stav-svar").replaceChildren(kommentar);
+    $("stav-input").parentElement.hidden = true;
+    $("stav-nasta").textContent = "Kör igen";
+    $("stav-nasta").focus({ preventScroll: true });
+  }
+
   function nasta() {
+    if (klar) return visa();
     i++;
-    if (i >= lista.length) {
-      // Varvet är klart – blanda och börja om
-      lista = shuffle(lista);
-      i = 0;
-    }
+    if (i >= lista.length) return resultat();
     nyFraga();
   }
 
   function visa() {
     lista = shuffle(plants.filter((p) => selected.has(p.id)));
     i = 0;
+    antalRatt = 0;
+    klar = false;
+    $("stav-input").parentElement.hidden = false;
     nyFraga();
   }
 
