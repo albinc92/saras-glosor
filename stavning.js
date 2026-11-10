@@ -12,7 +12,7 @@ const STAVNING = (() => {
 
   // Jämför utan hänsyn till skiftläge, accenter, ×, citattecken och extra mellanslag
   const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
-    .replace(/[×'’‘"]/g, "").replace(/\s+/g, " ").trim();
+    .replace(/(^|\s)x(?=\s)/g, " ").replace(/[×'’‘"]/g, "").replace(/\s+/g, " ").trim();
 
   // Antal bokstäver som skiljer (Levenshtein) – för "Nästan!"
   function avstand(a, b) {

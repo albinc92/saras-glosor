@@ -97,7 +97,7 @@ const QUIZ = (() => {
 
   // Svar matchas mot svenskt eller latinskt namn, utan hänsyn till skiftläge, accenter och ×
   const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
-    .replace(/[×'’]/g, "").replace(/\s+/g, " ").trim();
+    .replace(/(^|\s)x(?=\s)/g, " ").replace(/[×'’]/g, "").replace(/\s+/g, " ").trim();
   const hitta = (svar) => plants.find((p) => norm(p.sv) === norm(svar) || norm(p.latin) === norm(svar) || norm(p.wiki) === norm(svar));
 
   let fraga = null;
