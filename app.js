@@ -161,7 +161,7 @@ function buildDeck() {
 }
 
 const picker = $("picker");
-const KATEGORIER = [["perenn", "Perenner"], ["träd", "Träd"], ["buske", "Buskar"], ["barr", "Barrväxter"], ["vintergrön", "Vintergröna bladväxter"]];
+const KATEGORIER = [["perenn", "Perenner"], ["träd", "Träd"], ["buske", "Buskar"], ["barr-vintergrön", "Barrväxter och vintergröna bladväxter"]];
 const boxes = (root = $("pick-list")) => [...root.querySelectorAll("input[value]")];
 
 function updatePickCount() {

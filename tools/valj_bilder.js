@@ -52,8 +52,7 @@ const MOTIV = {
   "träd": ["leaf|leaves", "bark", "flower|flowers|blossom", "fruit|fruits|seeds", "tree"],
   "perenn": ["flower|flowers", "leaves|leaf", "seed head|fruit", "garden|habit", ""],
   "buske": ["flower|flowers|blossom", "leaf|leaves", "fruit|fruits|berries", "shrub|hedge|habit", ""],
-  "barr": ["needles|shoot|foliage", "cone|cones", "bark", "tree|habit|shrub", ""],
-  "vintergrön": ["leaf|leaves", "flower|flowers|blossom", "fruit|fruits|berries", "shrub|hedge|habit", ""],
+  "barr-vintergrön": ["leaf|leaves|needles", "flower|flowers|cone|cones", "fruit|fruits|berries", "shrub|tree|habit", ""],
 };
 
 (async () => {
